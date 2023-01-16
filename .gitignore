@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+/code/libs/electric-ninja-platform/external/
+**/build*/
+shared/
