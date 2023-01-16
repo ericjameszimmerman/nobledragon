@@ -53,6 +53,6 @@ void Hard_Fault_Handler_C(unsigned long *hardfault_args)
       // Bus Fault Address Register
       _BFAR = (*((volatile unsigned long *)(0xE000ED38))) ;
 
-      __asm("BKPT #0\n") ; // Break into the debugger
+      //__asm("BKPT #0\n") ; // Break into the debugger
 
 }

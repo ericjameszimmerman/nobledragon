@@ -9,11 +9,8 @@ import pathlib
 
 def _execute_command(cmd, cwd):
     p = subprocess.Popen(cmd, cwd=str(cwd), shell=True)
-
-    while p.poll() is None:
-        time.sleep(0.25)
-
-    return p.returncode
+    exit_code = p.wait()
+    return exit_code
 
 
 class Cli:
@@ -24,8 +21,8 @@ class Cli:
         self.build()
 
     def build(self):
-        _execute_command('conan install . --install-folder build-debug4 -pr=armcortexm3', self.script_path)
-        _execute_command('conan build . --build-folder build-debug4', self.script_path)
+        _execute_command('conan install . --install-folder build-debug8 -pr=armcortexm3', self.script_path)
+        _execute_command('conan build . --build-folder build-debug8', self.script_path)
 
 
 def cli_main():

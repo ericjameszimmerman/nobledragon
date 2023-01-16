@@ -1,14 +1,10 @@
 # CMake minimum version
 cmake_minimum_required (VERSION 3.13)
 
+set (LIB_SRC_DIRECTORY ${CMAKE_BINARY_DIR}/../../../libs)
+set (LIB_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../../../libs/output)
 
 set(CMAKE_SYSTEM_NAME Generic)
-
-# Trust user to have cross compiler properly setup
-#set(CMAKE_C_COMPILER_WORKS TRUE CACHE INTERNAL "")
-#set(CMAKE_CXX_COMPILER_WORKS TRUE CACHE INTERNAL "")
-#set(CMAKE_C_ABI_COMPILED TRUE CACHE INTERNAL "")
-#set(CMAKE_CXX_ABI_COMPILED TRUE CACHE INTERNAL "")
 
 # Perform compiler test without linker, since we're cross-compiling
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
@@ -34,7 +30,7 @@ add_executable(${prj}
   ../shared/freertos/freertos/Source/queue.c
   ../shared/freertos/freertos/Source/tasks.c
   ../shared/freertos/freertos/Source/timers.c
-  ../shared/freertos/freertos/Source/portable/IAR/ARM_CM3/port.c
+  ../shared/freertos/freertos/Source/portable/gcc/ARM_CM3/port.c
   ../shared/lwip/lpclwip/arch/lpc17xx_40xx_emac.c
   ../shared/lwip/lpclwip/arch/lpc17xx_40xx_systick_arch.c
   ../shared/lwip/lpclwip/arch/lpc_debug.c
@@ -90,11 +86,16 @@ target_include_directories(${prj}
   PRIVATE ../shared/lwip/lpclwip/
   PRIVATE ../shared/freertos/
   PRIVATE ../shared/freertos/freertos/Source/include/
-  PRIVATE ../shared/freertos/freertos/Source/portable/RVDS/ARM_CM3/
+  PRIVATE ../shared/freertos/freertos/Source/portable/gcc/ARM_CM3/
   PRIVATE ./configs/
   PRIVATE ../shared/CMSIS/CMSIS/Include/
 )
 
+add_subdirectory(${LIB_SRC_DIRECTORY}/chip-175x-6x libchip/build)
+add_subdirectory(${LIB_SRC_DIRECTORY}/lpc-board-lincoln libboard/build)
 
 # Link the library to the target
-target_link_libraries (${prj})
+target_link_libraries (${prj}
+  chip_175x_6x
+  board_lincoln
+)

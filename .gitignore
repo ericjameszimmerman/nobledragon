@@ -33,4 +33,5 @@
 
 /code/libs/electric-ninja-platform/external/
 **/build*/
+build-out*.txt
 shared/
