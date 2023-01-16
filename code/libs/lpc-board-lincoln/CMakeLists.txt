@@ -41,9 +41,10 @@ target_include_directories(${prj}
   PRIVATE ../../app/shared/CMSIS/CMSIS/Include/
 )
 
-
 # Link the library to the target
-#target_link_libraries (${prj})
+target_link_libraries (${prj}
+  chip_175x_6x
+)
 
 #add_custom_command(TARGET ${prj} 
 #                   POST_BUILD
