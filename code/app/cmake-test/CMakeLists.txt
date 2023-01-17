@@ -9,7 +9,7 @@ set(CMAKE_SYSTEM_NAME Generic)
 # Perform compiler test without linker, since we're cross-compiling
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
-# Project Infomation
+# Project Information
 set(prj lwip_freertos_test1)
 project(${prj})
 
@@ -23,79 +23,78 @@ add_executable(${prj}
   freertos_idletest.c
   HardFaultHandler.c
   freertos_hooks.c
-  ../shared/startup_code/sysinit.c
-  ../shared/freertos/freertos/Source/croutine.c
-  ../shared/freertos/freertos/Source/portable/MemMang/heap_3.c
-  ../shared/freertos/freertos/Source/list.c
-  ../shared/freertos/freertos/Source/queue.c
-  ../shared/freertos/freertos/Source/tasks.c
-  ../shared/freertos/freertos/Source/timers.c
-  ../shared/freertos/freertos/Source/portable/gcc/ARM_CM3/port.c
-  ../shared/lwip/lpclwip/arch/lpc17xx_40xx_emac.c
-  ../shared/lwip/lpclwip/arch/lpc17xx_40xx_systick_arch.c
-  ../shared/lwip/lpclwip/arch/lpc_debug.c
-  ../shared/lwip/lwip/src/api/netbuf.c
-  ../shared/lwip/lpclwip/arch/sys_arch_freertos.c
-  ../shared/lwip/lwip/src/api/api_lib.c
-  ../shared/lwip/lwip/src/api/api_msg.c
-  ../shared/lwip/lwip/src/core/ipv4/autoip.c
-  ../shared/lwip/lwip/src/core/def.c
-  ../shared/lwip/lwip/src/core/dhcp.c
-  ../shared/lwip/lwip/src/core/dns.c
-  ../shared/lwip/lwip/src/api/err.c
-  ../shared/lwip/lwip/src/netif/etharp.c
-  ../shared/lwip/lwip/src/core/ipv4/icmp.c
-  ../shared/lwip/lwip/src/core/ipv4/igmp.c
-  ../shared/lwip/lwip/src/core/ipv4/inet.c
-  ../shared/lwip/lwip/src/core/ipv4/inet_chksum.c
-  ../shared/lwip/lwip/src/core/init.c
-  ../shared/lwip/lwip/src/core/ipv4/ip.c
-  ../shared/lwip/lwip/src/core/ipv4/ip_addr.c
-  ../shared/lwip/lwip/src/core/ipv4/ip_frag.c
-  ../shared/lwip/lwip/src/core/lwiptimers.c
-  ../shared/lwip/lwip/src/core/mem.c
-  ../shared/lwip/lwip/src/core/memp.c
-  ../shared/lwip/lwip/src/api/netdb.c
-  ../shared/lwip/lwip/src/core/netif.c
-  ../shared/lwip/lwip/src/api/netifapi.c
-  ../shared/lwip/lwip/src/core/pbuf.c
-  ../shared/lwip/lwip/src/core/raw.c
-  ../shared/lwip/lwip/src/api/sockets.c
-  ../shared/lwip/lwip/src/core/stats.c
-  ../shared/lwip/lwip/src/core/sys.c
-  ../shared/lwip/lwip/src/core/tcp.c
-  ../shared/lwip/lwip/src/core/tcp_in.c
-  ../shared/lwip/lwip/src/core/tcp_out.c
-  ../shared/lwip/lwip/src/api/tcpip.c
-  ../shared/lwip/lwip/src/core/udp.c
+  ../../third-party/startup_code/sysinit.c
+  ../../third-party/freertos/freertos/Source/croutine.c
+  ../../third-party/freertos/freertos/Source/portable/MemMang/heap_3.c
+  ../../third-party/freertos/freertos/Source/list.c
+  ../../third-party/freertos/freertos/Source/queue.c
+  ../../third-party/freertos/freertos/Source/tasks.c
+  ../../third-party/freertos/freertos/Source/timers.c
+  ../../third-party/freertos/freertos/Source/portable/gcc/ARM_CM3/port.c
+  ../../third-party/lwip/lpclwip/arch/lpc17xx_40xx_emac.c
+  ../../third-party/lwip/lpclwip/arch/lpc17xx_40xx_systick_arch.c
+  ../../third-party/lwip/lpclwip/arch/lpc_debug.c
+  ../../third-party/lwip/lwip/src/api/netbuf.c
+  ../../third-party/lwip/lpclwip/arch/sys_arch_freertos.c
+  ../../third-party/lwip/lwip/src/api/api_lib.c
+  ../../third-party/lwip/lwip/src/api/api_msg.c
+  ../../third-party/lwip/lwip/src/core/ipv4/autoip.c
+  ../../third-party/lwip/lwip/src/core/def.c
+  ../../third-party/lwip/lwip/src/core/dhcp.c
+  ../../third-party/lwip/lwip/src/core/dns.c
+  ../../third-party/lwip/lwip/src/api/err.c
+  ../../third-party/lwip/lwip/src/netif/etharp.c
+  ../../third-party/lwip/lwip/src/core/ipv4/icmp.c
+  ../../third-party/lwip/lwip/src/core/ipv4/igmp.c
+  ../../third-party/lwip/lwip/src/core/ipv4/inet.c
+  ../../third-party/lwip/lwip/src/core/ipv4/inet_chksum.c
+  ../../third-party/lwip/lwip/src/core/init.c
+  ../../third-party/lwip/lwip/src/core/ipv4/ip.c
+  ../../third-party/lwip/lwip/src/core/ipv4/ip_addr.c
+  ../../third-party/lwip/lwip/src/core/ipv4/ip_frag.c
+  ../../third-party/lwip/lwip/src/core/lwiptimers.c
+  ../../third-party/lwip/lwip/src/core/mem.c
+  ../../third-party/lwip/lwip/src/core/memp.c
+  ../../third-party/lwip/lwip/src/api/netdb.c
+  ../../third-party/lwip/lwip/src/core/netif.c
+  ../../third-party/lwip/lwip/src/api/netifapi.c
+  ../../third-party/lwip/lwip/src/core/pbuf.c
+  ../../third-party/lwip/lwip/src/core/raw.c
+  ../../third-party/lwip/lwip/src/api/sockets.c
+  ../../third-party/lwip/lwip/src/core/stats.c
+  ../../third-party/lwip/lwip/src/core/sys.c
+  ../../third-party/lwip/lwip/src/core/tcp.c
+  ../../third-party/lwip/lwip/src/core/tcp_in.c
+  ../../third-party/lwip/lwip/src/core/tcp_out.c
+  ../../third-party/lwip/lwip/src/api/tcpip.c
+  ../../third-party/lwip/lwip/src/core/udp.c
 )
 
 target_include_directories(${prj}
   PUBLIC include
   PRIVATE .
-  PRIVATE ../shared/Chips/lpc_chip/chip_17xx_40xx/config_175x_6x/
-  
-  PRIVATE ../shared/Chips/lpc_chip/chip_common/
-  PRIVATE ../shared/Chips/lpc_chip/chip_17xx_40xx/
-  PRIVATE ../shared/Boards/lpc_board/board_common/
-  PRIVATE ../shared/Boards/lpc_board/boards_17xx/nxp_lpcxpresso_1769/
-  PRIVATE ../shared/lwip/lwip/src/include/
-  PRIVATE ../shared/lwip/lwip/src/include/ipv4/
-  PRIVATE ../shared/lwip/contrib/apps/tcpecho/
-  PRIVATE ../shared/lwip/contrib/apps/tcpecho_raw/
-  PRIVATE ../shared/lwip/lpclwip/
-  PRIVATE ../shared/freertos/
-  PRIVATE ../shared/freertos/freertos/Source/include/
-  PRIVATE ../shared/freertos/freertos/Source/portable/gcc/ARM_CM3/
+  PRIVATE ../../third-party/lpcopen/chips/lpc_chip/chip_17xx_40xx/config_175x_6x/
+  PRIVATE ../../third-party/lpcopen/chips/lpc_chip/chip_common/
+  PRIVATE ../../third-party/lpcopen/chips/lpc_chip/chip_17xx_40xx/
+  PRIVATE ../../third-party/lpcopen/boards/lpc_board/board_common/
+  PRIVATE ../../third-party/lpcopen/boards/lpc_board/boards_17xx/nxp_lpcxpresso_1769/
+  PRIVATE ../../third-party/lwip/lwip/src/include/
+  PRIVATE ../../third-party/lwip/lwip/src/include/ipv4/
+  PRIVATE ../../third-party/lwip/contrib/apps/tcpecho/
+  PRIVATE ../../third-party/lwip/contrib/apps/tcpecho_raw/
+  PRIVATE ../../third-party/lwip/lpclwip/
+  PRIVATE ../../third-party/freertos/
+  PRIVATE ../../third-party/freertos/freertos/Source/include/
+  PRIVATE ../../third-party/freertos/freertos/Source/portable/gcc/ARM_CM3/
   PRIVATE ./configs/
-  PRIVATE ../shared/CMSIS/CMSIS/Include/
+  PRIVATE ../../third-party/CMSIS/Include/
 )
 
-add_subdirectory(${LIB_SRC_DIRECTORY}/chip-175x-6x libchip/build)
-add_subdirectory(${LIB_SRC_DIRECTORY}/lpc-board-lincoln libboard/build)
+add_subdirectory(${LIB_SRC_DIRECTORY}/lpc/lpc-chip-175x-6x libchip/build)
+add_subdirectory(${LIB_SRC_DIRECTORY}/lpc/lpc-board-lincoln libboard/build)
 
 # Link the library to the target
 target_link_libraries (${prj}
-  chip_175x_6x
+  lpc_chip_175x_6x
   board_lincoln
 )
