@@ -2,14 +2,6 @@
 cmake_minimum_required (VERSION 3.13)
 
 set (TEST_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/)
-set (LIB_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../../output)
-
-#add_custom_target(test-output-directory ALL 
-#                   COMMAND ${CMAKE_COMMAND} -E make_directory ${TEST_OUTPUT_DIRECTORY})
-
-#add_custom_target(lib-output-directory ALL 
-#                   COMMAND ${CMAKE_COMMAND} -E make_directory ${LIB_OUTPUT_DIRECTORY})
-
 
 set(CMAKE_SYSTEM_NAME Generic)
 
@@ -63,12 +55,3 @@ target_include_directories(${prj}
 
 # Link the library to the target
 #target_link_libraries (${prj})
-
-
-#add_custom_command(TARGET ${prj} 
-#                   POST_BUILD
-#                   COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${prj}> ${TEST_OUTPUT_DIRECTORY})
-
-#add_custom_command(TARGET ${prj} 
-#                   POST_BUILD
-#                   COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${prj}> ${LIB_OUTPUT_DIRECTORY})

@@ -21,8 +21,8 @@ class Cli:
         self.build()
 
     def build(self):
-        _execute_command('conan install . --install-folder build-debug4 -pr=armcortexm3', self.script_path)
-        _execute_command('conan build . --build-folder build-debug4', self.script_path)
+        _execute_command('conan install . --install-folder build-debug -pr=micromint-lincoln60', self.script_path)
+        _execute_command('conan build . --build-folder build-debug', self.script_path)
 
 
 def cli_main():

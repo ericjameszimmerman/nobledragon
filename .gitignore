@@ -35,3 +35,5 @@
 **/build*/
 build-out*.txt
 shared/
+.vscode/
+/workspaces/

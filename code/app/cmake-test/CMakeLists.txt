@@ -1,8 +1,8 @@
 # CMake minimum version
 cmake_minimum_required (VERSION 3.13)
 
-set (LIB_SRC_DIRECTORY ${CMAKE_BINARY_DIR}/../../../libs)
-set (LIB_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../../../libs/output)
+set (LIB_SRC_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../libs)
+set (EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
 set(CMAKE_SYSTEM_NAME Generic)
 
@@ -19,7 +19,7 @@ enable_language(C)
 # STDLIB
 set (CMAKE_SHARED_LIBRARY_LINK_C_FLAGS)
 
-add_executable(${prj}
+add_executable(${prj}.elf
   freertos_idletest.c
   HardFaultHandler.c
   freertos_hooks.c
@@ -70,7 +70,7 @@ add_executable(${prj}
   ../../third-party/lwip/lwip/src/core/udp.c
 )
 
-target_include_directories(${prj}
+target_include_directories(${prj}.elf
   PUBLIC include
   PRIVATE .
   PRIVATE ../../third-party/lpcopen/chips/lpc_chip/chip_17xx_40xx/config_175x_6x/
@@ -94,7 +94,17 @@ add_subdirectory(${LIB_SRC_DIRECTORY}/lpc/lpc-chip-175x-6x libchip/build)
 add_subdirectory(${LIB_SRC_DIRECTORY}/lpc/lpc-board-lincoln libboard/build)
 
 # Link the library to the target
-target_link_libraries (${prj}
+target_link_libraries (${prj}.elf
   lpc_chip_175x_6x
   board_lincoln
 )
+
+
+# Generate the binary file
+add_custom_target (${prj}.bin ALL arm-none-eabi-objcopy -Obinary "${EXECUTABLE_OUTPUT_PATH}/${prj}.elf" "${EXECUTABLE_OUTPUT_PATH}/${prj}.bin" DEPENDS ${EXECUTABLE_OUTPUT_PATH}/${prj}.elf)
+
+# Generate the hex file
+add_custom_target (${prj}.hex ALL arm-none-eabi-objcopy -Oihex "${EXECUTABLE_OUTPUT_PATH}/${prj}.elf" "${EXECUTABLE_OUTPUT_PATH}/${prj}.hex" DEPENDS ${EXECUTABLE_OUTPUT_PATH}/${prj}.elf)
+
+# Echo the size Infomation
+add_custom_target (size ALL arm-none-eabi-size "${EXECUTABLE_OUTPUT_PATH}/${prj}.elf" DEPENDS ${EXECUTABLE_OUTPUT_PATH}/${prj}.elf)

@@ -1,0 +1,8 @@
+/* @file lwippools.h
+ * Define three pools with sizes 64, 128 and 336 bytes */
+
+LWIP_MALLOC_MEMPOOL_START
+LWIP_MALLOC_MEMPOOL(64, 64)
+LWIP_MALLOC_MEMPOOL(4, 128)
+LWIP_MALLOC_MEMPOOL(4, 336)
+LWIP_MALLOC_MEMPOOL_END
